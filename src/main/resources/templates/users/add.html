@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="template1.html"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>Utilisateurs</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <div class="container mt-5">
+        <div class="card">
+            <div class="card-header"><h2>Nouvel Utilisateur</h2></div>
+            <div class="card-body">
+                <form method="post" th:action="@{/admin/save}">
+                    <div class="mb-3">
+                        <label for="nom" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="nom" name="nom" aria-describedby="nameHelp" th:value="${utilisateur.nom}">
+                        <span class="text-danger" th:errors="${utilisateur.nom}"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label for="nom" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" th:value="${utilisateur.email}">
+                        <span class="text-danger" th:errors="${utilisateur.email}"></span>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Enregistrer</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
